@@ -20,7 +20,7 @@
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimary"
+    android:background="@drawable/bg"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
@@ -29,9 +29,14 @@
 
     <ImageView
         android:id="@+id/image_view"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_margin="@dimen/view_margin"
+        android:layout_width="351dp"
+        android:layout_height="671dp"
+        android:layout_marginStart="@dimen/view_margin"
+        android:layout_marginLeft="@dimen/view_margin"
+        android:layout_marginTop="@dimen/view_margin"
+        android:layout_marginEnd="@dimen/view_margin"
+        android:layout_marginRight="@dimen/view_margin"
+        android:layout_marginBottom="@dimen/view_margin"
         android:contentDescription="@string/imageview_description"
         android:scaleType="fitStart" />
 
@@ -39,20 +44,40 @@
         android:id="@+id/title_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/emojify_button"
+        android:layout_above="@+id/imageView"
         android:layout_centerHorizontal="true"
         android:layout_margin="@dimen/view_margin"
-        android:text="@string/emojify_me"
+        android:fontFamily="cursive"
+        android:textStyle="bold"
+        android:textSize="40sp"
+        android:textColor="#A52A2A"
+        android:text="@string/emojif_me"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
 
+    <ImageView
+        android:id="@+id/imageView"
+    android:layout_width="100dp"
+    android:layout_height="100dp"
+    android:layout_centerVertical="true"
+    android:layout_centerHorizontal="true"
+    app:srcCompat="@drawable/camera_1f4f7" />
     <Button
         android:id="@+id/emojify_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
         android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:text="@string/go"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display1"/>
+        android:layout_below="@+id/imageView"
+        android:backgroundTint="#FFFFC2"
+        android:text="@string/Capture_An_Image"
+        android:textStyle="bold"
+        android:shadowRadius="5"
+        android:shadowDy="1"
+        android:shadowDx="1"
+        android:shadowColor="#0000FF"
+        android:fontFamily="cursive"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:textColor="#A52A2A"/>
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/clear_button"
@@ -93,5 +118,9 @@
         android:src="@drawable/ic_share"
         android:visibility="gone"
         app:backgroundTint="@android:color/white" />
+
+
+
+
 
 </RelativeLayout>

@@ -31,6 +31,8 @@ import android.support.v4.content.ContextCompat;
 import android.support.v4.content.FileProvider;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -53,6 +55,7 @@ public class MainActivity extends AppCompatActivity {
     private static final String FILE_PROVIDER_AUTHORITY = "com.example.android.fileprovider";
 
     @BindView(R.id.image_view) ImageView mImageView;
+    @BindView(R.id.imageView) ImageView mImageView2;
 
     @BindView(R.id.emojify_button) Button mEmojifyButton;
     @BindView(R.id.share_button) FloatingActionButton mShareFab;
@@ -66,12 +69,14 @@ public class MainActivity extends AppCompatActivity {
     private Bitmap mResultsBitmap;
     private Boolean mImageIsSaved = false;
 
-
+    TextView text;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        Animation shake = AnimationUtils.loadAnimation(MainActivity.this, R.anim.shake);
+    text = (TextView)findViewById( R.id.title_text_view) ;
+   text.startAnimation(shake);
         // Bind the views
         ButterKnife.bind(this);
 
@@ -178,6 +183,7 @@ public class MainActivity extends AppCompatActivity {
         // Toggle Visibility of the views
         mEmojifyButton.setVisibility(View.GONE);
         mTitleTextView.setVisibility(View.GONE);
+        mImageView2.setVisibility(View.GONE);
         mSaveFab.setVisibility(View.VISIBLE);
         mShareFab.setVisibility(View.VISIBLE);
         mClearFab.setVisibility(View.VISIBLE);
@@ -242,6 +248,7 @@ public class MainActivity extends AppCompatActivity {
         mImageView.setImageResource(0);
         mEmojifyButton.setVisibility(View.VISIBLE);
         mTitleTextView.setVisibility(View.VISIBLE);
+        mImageView2.setVisibility(View.VISIBLE);
         mShareFab.setVisibility(View.GONE);
         mSaveFab.setVisibility(View.GONE);
         mClearFab.setVisibility(View.GONE);
